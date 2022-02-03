@@ -1,6 +1,6 @@
 ## File Manager
 
-A simple file browser powered by [Python](https://www.python.org/downloads/) and [Flask](https://flask.palletsprojects.com/en/2.0.x/) built aiming efficiency
+A simple file browser powered by [Python](https://www.python.org/downloads/) and [Flask](https://flask.palletsprojects.com/en/2.0.x/) built aiming efficiency + multiplatform support
 
 ## Instal Instructions
 
