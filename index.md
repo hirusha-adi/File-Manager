@@ -3,8 +3,14 @@
 A simple file browser powered by [Python](https://www.python.org/downloads/) and [Flask](https://flask.palletsprojects.com/en/2.0.x/) built aiming efficiency + multiplatform support
 
 ## Images
+
+- Web Interface
+
 ![Screenshot_20220203_202612](https://user-images.githubusercontent.com/36286877/152367514-d1cb22a7-3fda-4570-a062-4b9f97e0c6b4.png)
 
+- Console
+
+![Screenshot_20220203_202746](https://user-images.githubusercontent.com/36286877/152367823-5fc0d909-8978-42ce-8fd6-4bd3ad59d0f1.png)
 
 ## Instal Instructions
 
