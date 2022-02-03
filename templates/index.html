@@ -5,38 +5,93 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>File Manager</title>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
+
+    <style>
+        a:link {
+        color: black;
+        }
+
+        a:visited {
+        color: black;
+        }
+
+        a:hover {
+        color: black;
+        }
+
+        a:active {
+        color: black;
+        }
+    </style>
+
+
 </head>
 
 <body>
 
-    <h1>Change Dir</h1>
-    <h1>
-        <a href="{{ url_for('changedir') + '?destination=' }}backback">
-            ..
-        </a>
-    </h1>
-    <h1>
-        <a href="{{ url_for('changedir') + '?destination=' }}backbackback">
-            ../..
-        </a>
-    </h1>
+    <!-- HEADER -->
+    <header>
+        <i class="material-icons icon-menu">menu</i>
+        <h1>Files</h1>
+        <span></span>
+        <i class="material-icons">add</i>
+        <i class="material-icons">more_vert</i>
+    </header>
     
+    <!-- MAIN -->
+    <main>
 
-    <h1>Folders</h1>
-    {% for key, value in cwd_folder.items() %}
-        <a href="{{ url_for('changedir') + '?destination=' + value }}">
-            <h1>{{ key }}</h1>
+        <!-- href="{{ url_for('changedir') + '?destination=' }}backback" -->
+        <a href="{{ url_for('changedir') + '?destination=' }}backback">
+            <div class="folder">
+                <i class="material-icons">folder
+                    <p class="cooltip">..</p>
+                </i>
+                <h1>..</h1>
+            </div>
         </a>
-    {% endfor %}
-    
-    <h1>Files</h1>
-    {% for key, value in cwd_files.items() %}
-        <h1>
-            <a href="{{ '/file?path=' + value }}">
-                {{ key }}
+
+        <!-- href="{{ url_for('changedir') + '?destination=' }}backbackback" -->
+        <a href="{{ url_for('changedir') + '?destination=' }}backbackback">
+            <div class="folder">
+                <i class="material-icons">folder
+                    <p class="cooltip">../..</p>
+                </i>
+                <h1>../..</h1>
+            </div>
+        </a>
+
+        {% for key, value in cwd_folder.items() %}
+        <!-- href="{{ url_for('changedir') + '?destination=' + value }}" -->
+            <a href="{{ url_for('changedir') + '?destination=' + value }}">
+                <div class="folder">
+                    <i class="material-icons">folder
+                        <p class="cooltip">{{ key }}</p>
+                    </i>
+                    <h1>{{ key }}</h1>
+                </div>
             </a>
-        </h1>
-    {% endfor %}
+        {% endfor %}
+
+        {% for key, value in cwd_files.items() %}
+            <!-- href="{{ '/file?path=' + value }}" -->
+            <a href="{{ '/file?path=' + value }}">
+                <div class="folder">
+                    <i class="material-icons">insert_drive_file
+                        <p class="cooltip">{{ key }}</p>
+                    </i>
+                    <h1>{{ key }}</h1>
+                </div>
+            </a>
+        {% endfor %}
+
+
+
+    </main>
 
 </body>
 
