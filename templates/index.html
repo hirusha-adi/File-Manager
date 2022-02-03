@@ -7,7 +7,7 @@
     <title>File Manager</title>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+    <!-- <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" /> -->
     <link rel="stylesheet" href="{{ url_for('static', filename='custom.css') }}">
 
     <style>
@@ -36,10 +36,14 @@
     <!-- HEADER -->
     <header>
         <i class="material-icons icon-menu">menu</i>
-        <h1>Files</h1>
+        <h1>{{ current_folder_name }}</h1>
         <span></span>
-        <i class="material-icons">add</i>
-        <i class="material-icons">more_vert</i>
+        <a onclick="askFileName()" >
+            <i class="material-icons">add</i>
+        </a>     
+        <a onclick="askFolderName()()" >
+            <i class="material-icons">folder</i>
+        </a>
     </header>
     
     <!-- MAIN -->
@@ -94,5 +98,24 @@
     </main>
 
 </body>
+<script>
+    function httpGet(theUrl, folderName) {
+        var xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", theUrl, false); // false for synchronous request
+        xmlHttp.send(null);
+        return xmlHttp.responseText;
+
+    }
+    // httpGet(window.location.href + "mkdir?name=folderName", folderName)
+
+    function askFolderName() {
+        folderName = prompt("Enter your folder name", "Folder")
+        window.location.href = replace(window.location.href + "mkdir?name=folderName");
+    }
+
+    function askFileName() {
+        // i truly have no idea on how to do this
+    }
+</script>
 
 </html>
