@@ -2,6 +2,10 @@
 
 A simple file browser powered by [Python](https://www.python.org/downloads/) and [Flask](https://flask.palletsprojects.com/en/2.0.x/) built aiming efficiency + multiplatform support
 
+## Images
+![Screenshot_20220203_202612](https://user-images.githubusercontent.com/36286877/152367514-d1cb22a7-3fda-4570-a062-4b9f97e0c6b4.png)
+
+
 ## Instal Instructions
 
 ### Arch Linux
