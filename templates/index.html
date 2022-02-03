@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Manager</title>
+</head>
+
+<body>
+
+    <h1>Change Dir</h1>
+    <h1>
+        <a href="{{ url_for('changedir') + '?destination=' }}backback">
+            ..
+        </a>
+    </h1>
+    <h1>
+        <a href="{{ url_for('changedir') + '?destination=' }}backbackback">
+            ../..
+        </a>
+    </h1>
+    
+
+    <h1>Folders</h1>
+    {% for key, value in cwd_folder.items() %}
+        <a href="{{ value }}">
+            <h1>{{ key }}</h1>
+        </a>
+    {% endfor %}
+    
+    <h1>Files</h1>
+    {% for key, value in cwd_files.items() %}
+        <h1>
+            <a href="{{ '/file?path=' + value }}">
+                {{ key }}
+            </a>
+        </h1>
+    {% endfor %}
+
+</body>
+
+</html>
