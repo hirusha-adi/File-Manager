@@ -9,26 +9,6 @@ from flask import Flask, redirect, render_template, request, send_file, url_for
 WIN = True if os.name == 'nt' else False
 UNIX = False if os.name == 'nt' else True
 
-if WIN:
-    import shlex
-    import winreg
-
-    def get_default_windows_app(suffix):
-        try:
-            class_root = winreg.QueryValue(winreg.HKEY_CLASSES_ROOT, suffix)
-            try:
-                with winreg.OpenKey(winreg.HKEY_CLASSES_ROOT, r'{}\shell\open\command'.format(class_root)) as key:
-                    command = winreg.QueryValueEx(key, '')[0]
-                    name = shlex.split(command)[0]
-                    if (name is None) or (name == '') or (bool(name) == False):
-                        return False
-                    else:
-                        return name
-            except:
-                return False
-        except:
-            return False
-
 
 app = Flask(__name__)
 
@@ -69,15 +49,7 @@ def file():
     if path is None:
         return "Bug lol"
     corrected = '/'.join(str(path).split("s1a5h"))
-    if WIN:
-        code = get_default_windows_app(corrected[-1])
-        if code is False:
-            return send_file(corrected)
-        else:
-            os.system(f'"{code}" "{path}"')
-            return "Program should be running"
-    else:
-        return send_file(corrected)
+    return send_file(corrected)
 
 
 @app.route("/changedir")
